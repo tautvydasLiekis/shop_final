@@ -1,4 +1,4 @@
-package com.wild.backend.api;
+package com.wild.backend.api.coins;
 
 import java.util.List;
 

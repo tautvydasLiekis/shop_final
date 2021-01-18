@@ -1,4 +1,4 @@
-package com.wild.backend.api;
+package com.wild.backend.api.coins;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
