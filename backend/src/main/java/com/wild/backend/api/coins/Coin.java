@@ -13,5 +13,6 @@ import java.util.List;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Coin {
-    private List<CoinData> coins= new ArrayList<>();
+//    private List<CoinData> coins= new ArrayList<>();
+    private CoinData coins;
 }

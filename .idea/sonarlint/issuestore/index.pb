@@ -19,3 +19,5 @@ E
 ui/src/api/coinApi.js,9\c\9c594e6cf2196d7197c3f3fe24c2939996b5c9ea
 C
 ui/src/api/index.js,c\e\ce9b422e67cc880018e9e25785e0d2e997ebd69c
+H
+ui/src/api/productApi.js,d\8\d88f9bd1fd452a11f0bda572c7151ecb7c34865a
