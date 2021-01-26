@@ -1,6 +1,7 @@
-package com.wild.backend.api.coins;
+package com.wild.backend.api.btcPrice;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,8 +12,10 @@ import lombok.ToString;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CoinData {
-    private String id;
-    private String name;
-    private String symbol;
-    private Double price;
+
+    @JsonProperty("last")
+    private Float last;
+
+    @JsonProperty("volume")
+    private Float volume;
 }

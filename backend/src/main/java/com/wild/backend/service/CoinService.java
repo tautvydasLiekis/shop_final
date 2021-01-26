@@ -2,11 +2,12 @@ package com.wild.backend.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.wild.backend.api.coins.Coin;
-import com.wild.backend.api.coins.CoinApi;
-import com.wild.backend.api.coins.CoinData;
+import com.wild.backend.api.btcPrice.CoinApi;
+import com.wild.backend.api.btcPrice.CoinData;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CoinService {
@@ -19,22 +20,16 @@ public class CoinService {
         this.objectMapper = objectMapper;
     }
 
-    public Coin getCoinData() {
-        Coin coin = new Coin();
+    public List<CoinData> getCoinData() throws JsonProcessingException {
 
         String json = coinApi.getCoinJson();
 
-        ObjectNode root;
-        try {
-            root = objectMapper.readValue(json, ObjectNode.class);
+        CoinData coinData = objectMapper.readValue(json, CoinData.class);
 
-            CoinData coinData = objectMapper.readValue(root.get("main").toString(), CoinData.class);
-            coin.setCoins(coinData);
+        List<CoinData> coinDataList = new ArrayList<>();
 
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        coinDataList.add(coinData);
 
-        return coin;
+        return coinDataList;
     }
 }

@@ -21,3 +21,13 @@ C
 ui/src/api/index.js,c\e\ce9b422e67cc880018e9e25785e0d2e997ebd69c
 H
 ui/src/api/productApi.js,d\8\d88f9bd1fd452a11f0bda572c7151ecb7c34865a
+f
+6src/main/java/com/wild/backend/api/coins/CoinData.java,3\4\34194b57336cf59ede57826f4f5db7de7d71a4c8
+b
+2src/main/java/com/wild/backend/api/coins/Coin.java,5\7\57583c2c3845801f0ec78ad6076ba57b0b8e85ac
+g
+7src/main/java/com/wild/backend/service/CoinService.java,6\0\60da301f4525483ce59db52c30ada06916139594
+e
+5src/main/java/com/wild/backend/api/coins/CoinApi.java,9\7\979ea656d8b0721989edea4f98be04977b3e98c9
+m
+=src/main/java/com/wild/backend/controller/CoinController.java,5\6\56f0c4573dd88c06e4455031c556d8e27ec9c12a

@@ -1,6 +1,7 @@
-package com.wild.backend.api.coins;
+package com.wild.backend.api.btcPrice;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import java.util.List;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Coin {
-//    private List<CoinData> coins= new ArrayList<>();
-    private CoinData coins;
+
+    @JsonProperty("coins")
+    private List<CoinData> coins = new ArrayList<>();
 }

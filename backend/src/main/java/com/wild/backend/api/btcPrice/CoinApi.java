@@ -1,4 +1,4 @@
-package com.wild.backend.api.coins;
+package com.wild.backend.api.btcPrice;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
@@ -14,12 +14,12 @@ public class CoinApi {
     }
 
     public String getCoinJson(){
-        return getClient().getForObject("/coins?skip=0&limit=1&currency=EUR", String.class);
+        return getClient().getForObject("/API/Public/btceur/ticker.json", String.class);
     }
 
     public RestTemplate getClient(){
         return restTemplateBuilder
-                .rootUri("https://api.coinstats.app/public/v1")
+                .rootUri("https://bitbay.net")
                 .build();
     }
 
