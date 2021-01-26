@@ -1,6 +1,7 @@
 package com.wild.backend.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.wild.backend.api.btcDifficulty.CoinDifficulty;
 import com.wild.backend.api.btcPrice.CoinData;
 import com.wild.backend.service.CoinService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +23,10 @@ public class CoinController {
     @GetMapping("/data")
     public List<CoinData> getCoinData() throws JsonProcessingException {
         return coinService.getCoinData();
+    }
+
+    @GetMapping("/data1")
+    public CoinDifficulty getCoinDifficulty() throws JsonProcessingException {
+        return coinService.getCoinDifficulty();
     }
 }
