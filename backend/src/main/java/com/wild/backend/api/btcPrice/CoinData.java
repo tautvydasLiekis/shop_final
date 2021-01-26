@@ -17,7 +17,4 @@ public class CoinData {
 
     @JsonProperty("last")
     private BigDecimal last;
-
-    @JsonProperty("volume")
-    private Float volume;
 }

@@ -25,17 +25,15 @@ public class CoinService {
         this.objectMapper = objectMapper;
     }
 
-    public List<CoinData> getCoinData() throws JsonProcessingException {
+    public CoinData getCoinData() throws JsonProcessingException {
 
         String json = coinApi.getCoinJson();
 
         CoinData coinData = objectMapper.readValue(json, CoinData.class);
 
-        List<CoinData> coinDataList = new ArrayList<>();
+        coinData.setLast(coinData.getLast());
 
-        coinDataList.add(coinData);
-
-        return coinDataList;
+        return coinData;
     }
 
     public CoinDifficulty getCoinDifficulty() throws JsonProcessingException{

@@ -21,7 +21,7 @@ public class CoinController {
     }
 
     @GetMapping("/data")
-    public List<CoinData> getCoinData() throws JsonProcessingException {
+    public CoinData getCoinData() throws JsonProcessingException {
         return coinService.getCoinData();
     }
 
