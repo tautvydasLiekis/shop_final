@@ -9,6 +9,7 @@ import com.wild.backend.api.btcPrice.CoinApi;
 import com.wild.backend.api.btcPrice.CoinData;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class CoinService {
         this.objectMapper = objectMapper;
     }
 
-    public CoinData getCoinData() throws JsonProcessingException {
+    public BigDecimal getCoinData() throws JsonProcessingException {
 
         String json = coinApi.getCoinJson();
 
@@ -33,10 +34,10 @@ public class CoinService {
 
         coinData.setLast(coinData.getLast());
 
-        return coinData;
+        return coinData.getLast();
     }
 
-    public CoinDifficulty getCoinDifficulty() throws JsonProcessingException{
+    public Double getCoinDifficulty() throws JsonProcessingException{
 
         CoinDifficulty coinDifficulty=new CoinDifficulty();
 
@@ -48,6 +49,6 @@ public class CoinService {
 
         coinDifficulty.setDifficulty_double(data.get("difficulty_double").asDouble());
 
-        return coinDifficulty;
+        return coinDifficulty.getDifficulty_double();
     }
 }

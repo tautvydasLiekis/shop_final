@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -21,12 +22,12 @@ public class CoinController {
     }
 
     @GetMapping("/data")
-    public CoinData getCoinData() throws JsonProcessingException {
+    public BigDecimal getCoinData() throws JsonProcessingException {
         return coinService.getCoinData();
     }
 
     @GetMapping("/data1")
-    public CoinDifficulty getCoinDifficulty() throws JsonProcessingException {
+    public Double getCoinDifficulty() throws JsonProcessingException {
         return coinService.getCoinDifficulty();
     }
 }
