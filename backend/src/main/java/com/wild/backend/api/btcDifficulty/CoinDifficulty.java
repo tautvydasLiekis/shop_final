@@ -13,4 +13,6 @@ public class CoinDifficulty {
 
     private Double difficulty_double;
 
+    private Double reward_block;
+
 }

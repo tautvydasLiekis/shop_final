@@ -35,7 +35,7 @@ public class CoinService {
         return coinData.getLast();
     }
 
-    public Double getCoinDifficulty() throws JsonProcessingException{
+    public CoinDifficulty getCoinDifficulty() throws JsonProcessingException{
 
         CoinDifficulty coinDifficulty=new CoinDifficulty();
 
@@ -46,6 +46,23 @@ public class CoinService {
         var data = root.get("data");
 
         coinDifficulty.setDifficulty_double(data.get("difficulty_double").asDouble());
+
+        coinDifficulty.setReward_block(data.get("reward_block").asDouble());
+
+        return coinDifficulty;
+    }
+
+    public Double getBlockReward() throws JsonProcessingException{
+
+        CoinDifficulty coinDifficulty=new CoinDifficulty();
+
+        String json = coinDifficultyApi.getCoinDifficultyJson();
+
+        ObjectNode root = objectMapper.readValue(json, ObjectNode.class);
+
+        var data = root.get("data");
+
+        coinDifficulty.setReward_block(data.get("reward_block").asDouble());
 
         return coinDifficulty.getDifficulty_double();
     }
