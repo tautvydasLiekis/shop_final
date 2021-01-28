@@ -14,6 +14,9 @@ public class Gpu {
     private Long id;
 
     @Column(nullable = false)
+    private String model;
+
+    @Column(nullable = false)
     private BigDecimal msrpPrice;
 
     @Column(nullable = false)
