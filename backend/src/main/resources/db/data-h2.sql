@@ -11,6 +11,9 @@ INSERT INTO USER_ROLES (user_id, role_id) VALUES
 (2, 2),
 (2, 1);
 
+INSERT INTO user_products(user_id, product_id) VALUES
+(1,1);
+
 INSERT INTO PRODUCT (id, is_active, name, price, description) VALUES
 (1,1,'a',11.0,'aaaa');
 
