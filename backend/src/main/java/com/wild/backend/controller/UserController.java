@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User user(@AuthenticationPrincipal User user) {
+    public User loginUser(@AuthenticationPrincipal User user) {
         return user;
     }
 
