@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -29,10 +31,7 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "is_active")
-    private Boolean flag;
-
-    @OneToMany(mappedBy = "product")
-    private Set<ProductKey> productKeys;
+    private Boolean flag=true;
 
     public Long getId() {
         return id;
@@ -52,11 +51,6 @@ public class Product {
 
     public Boolean getFlag() {
         return flag;
-    }
-
-    @JsonManagedReference
-    public Set<ProductKey> getProductKeys() {
-        return productKeys;
     }
 }
 

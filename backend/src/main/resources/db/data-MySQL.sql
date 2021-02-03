@@ -11,9 +11,6 @@ INSERT INTO final_project.USER_ROLES (user_id, role_id) VALUES
 (2, 2),
 (2, 1);
 
-INSERT INTO final_project.user_products(user_id, product_id) VALUES
-(1,1);
-
 INSERT INTO final_project.PRODUCT (id, is_active, name, price, description) VALUES
 (1,1,'a',11.0,'aaaa');
 
