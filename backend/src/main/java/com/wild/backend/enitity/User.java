@@ -48,6 +48,15 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+//    @JoinTable(
+//            name="User_Products",
+//            joinColumns = { @JoinColumn(name = "user_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+//    )
+//    private Set<Product> products;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
