@@ -15,6 +15,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@ToString
 public class User implements UserDetails {
 
     @Id
