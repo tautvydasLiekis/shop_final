@@ -2,6 +2,7 @@ package com.wild.backend.service;
 
 import com.wild.backend.enitity.Role;
 import com.wild.backend.enitity.User;
+import com.wild.backend.repository.RoleRepository;
 import com.wild.backend.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
 
     private UserRepository userRepository;
+    private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -25,9 +28,10 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found."));
     }
 
-    public User addUser(User user){
+    public User addUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Set.of(new Role(1L,"USER")));
+        Role role = roleRepository.getOne(1L);
+        user.addRole(role);
         return userRepository.save(user);
     }
 }

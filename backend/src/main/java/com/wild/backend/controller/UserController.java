@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(User user){
+    public String registerUser(@RequestBody User user){
         if (userRepository.existsByUsername(user.getUsername())){
             return ":(";
         }
