@@ -11,15 +11,8 @@ INSERT INTO USER_ROLES (user_id, role_id) VALUES
 (2, 2),
 (2, 1);
 
-INSERT INTO PRODUCT (id, is_active, name, price, description) VALUES
-(1,1,'a',11.0,'aaaa');
+INSERT INTO PRODUCT(id, description, is_active, name, price) VALUES
+(1,'aaaa', 1, 'a', 10.00);
 
-INSERT INTO product_key(id, licence_key, product_id) VALUES
-(1,'bbbb',1),
-(2,'cccc',1);
-
-INSERT INTO ORDERS(id, orderCount) VALUES
-(1,1);
-
-INSERT INTO order_history(id, operation_date, order_id) VALUES
-(1,'2020-01-01 00:00:00', 1);
+INSERT INTO licenses(id,license_key,user_id, product_id) VALUES
+(1,'0370709a-670f-11eb-ae93-0242ac130002',1,1);

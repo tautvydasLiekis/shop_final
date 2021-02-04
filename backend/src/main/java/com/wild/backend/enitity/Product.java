@@ -5,9 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -32,6 +36,15 @@ public class Product {
 
     @Column(name = "is_active")
     private Boolean flag=true;
+
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @JoinTable(
+            name="licenses",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
+    private Set<Product> products= new HashSet<>();
 
     public Long getId() {
         return id;

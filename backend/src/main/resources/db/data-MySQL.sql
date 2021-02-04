@@ -11,9 +11,8 @@ INSERT INTO final_project.USER_ROLES (user_id, role_id) VALUES
 (2, 2),
 (2, 1);
 
-INSERT INTO final_project.PRODUCT (id, is_active, name, price, description) VALUES
-(1,1,'a',11.0,'aaaa');
+INSERT INTO final_project.PRODUCT(id, description, is_active, name, price) VALUES
+(1,'aaaa', 1, 'a', 10.00);
 
-INSERT INTO final_project.product_key(id, licence_key, product_id) VALUES
-(1,'bbbb',1),
-(2,'cccc',1);
+INSERT INTO final_project.licenses(id, license_key, user_id, product_id) VALUES
+(1,'0370709a-670f-11eb-ae93-0242ac130002',1,1);
