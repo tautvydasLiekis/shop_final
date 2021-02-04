@@ -1,5 +1,6 @@
 package com.wild.backend.enitity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,6 +15,7 @@ import java.util.*;
 @Getter
 @Setter
 @ToString
+//@JsonIgnoreProperties(value= {"products"})
 public class User implements UserDetails {
 
     @Id
@@ -44,6 +46,15 @@ public class User implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "role_id") }
     )
     private Set<Role> roles =new HashSet<>();
+
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+//    @JoinTable(
+//            name="licenses",
+//            joinColumns = { @JoinColumn(name = "user_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+//    )
+//    private List<Product> products=new ArrayList<>();
 
 
 

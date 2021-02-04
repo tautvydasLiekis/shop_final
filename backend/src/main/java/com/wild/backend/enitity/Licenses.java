@@ -13,7 +13,7 @@ public class Licenses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type="uuid-char")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Type(type="uuid-char")
     private String licenseKey;
 }

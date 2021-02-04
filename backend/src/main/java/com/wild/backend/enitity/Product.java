@@ -44,7 +44,7 @@ public class Product {
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "product_id") }
     )
-    private Set<Product> products= new HashSet<>();
+    private List<User> users= new ArrayList<>();
 
     public Long getId() {
         return id;
