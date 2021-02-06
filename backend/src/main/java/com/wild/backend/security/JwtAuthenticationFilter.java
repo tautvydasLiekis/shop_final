@@ -24,9 +24,6 @@ import static com.wild.backend.security.SecurityConstants.AUTHORIZATION_HEADER;
 import static com.wild.backend.security.SecurityConstants.AUTHORIZATION_HEADER_PREFIX;
 
 
-/**
- * @author tsimonavicius
- */
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private JwtProvider jwtProvider;
