@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Data
@@ -16,7 +15,7 @@ public class ProductDTO {
     private String description;
     private BigDecimal price;
     private Boolean flag;
-    private List<String> users;
+    private List<Long> users;
 
     public ProductDTO(Product product) {
         this.id = product.getId();
@@ -25,7 +24,7 @@ public class ProductDTO {
         this.price = product.getPrice();
         this.flag = product.getFlag();
         this.users = product.getUsers().stream()
-                .map(User::getUsername)
+                .map(User::getId)
                 .collect(Collectors.toList());
     }
 }
