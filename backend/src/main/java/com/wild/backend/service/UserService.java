@@ -34,4 +34,12 @@ public class UserService implements UserDetailsService {
         user.addRole(role);
         return userRepository.save(user);
     }
+
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
+    public User getById(long id){
+        return userRepository.findById(id);
+    }
 }

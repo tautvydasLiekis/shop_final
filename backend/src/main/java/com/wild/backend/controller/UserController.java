@@ -24,16 +24,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody User user){
-        if (userRepository.existsByUsername(user.getUsername())){
+    public String registerUser(@RequestBody User user) {
+        if (userRepository.existsByUsername(user.getUsername())) {
             return "No entry to you";
         }
         userService.addUser(user);
         return "Welcome";
-    }
-
-    @GetMapping("/buy")
-    public String buyProduct(){
-        return "ok";
     }
 }
