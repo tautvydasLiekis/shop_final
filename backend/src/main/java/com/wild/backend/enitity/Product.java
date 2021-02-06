@@ -37,15 +37,6 @@ public class Product {
     private Boolean flag =true;
 
     @ManyToMany(mappedBy = "products")
-    private List<User> users = new ArrayList<>();
-
-//    @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-//    @JoinTable(
-//            name="licenses",
-//            joinColumns = { @JoinColumn(name = "user_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "product_id") }
-//    )
-//    private List<User> users= new ArrayList<>();
+    private Set<User> users = new HashSet<>();
 }
 
