@@ -3,8 +3,12 @@ package com.wild.backend.controller;
 import com.wild.backend.enitity.Product;
 import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.service.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,8 +29,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product newProduct(@RequestBody Product product){
-        productService.newProduct(product);
-        return product;
+//    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Product> newProduct(@RequestBody @Valid Product product){
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(productService.newProduct(product));
     }
 }
