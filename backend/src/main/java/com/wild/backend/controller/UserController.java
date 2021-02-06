@@ -1,6 +1,7 @@
 package com.wild.backend.controller;
 
 import com.wild.backend.enitity.User;
+import com.wild.backend.enitity.dto.UserDTO;
 import com.wild.backend.repository.UserRepository;
 import com.wild.backend.service.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,8 +19,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User loginUser(@AuthenticationPrincipal User user) {
-        return user;
+    public UserDTO loginUser(@AuthenticationPrincipal User user) {
+        return new UserDTO(user);
     }
 
     @PostMapping("/register")

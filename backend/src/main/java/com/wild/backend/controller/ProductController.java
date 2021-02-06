@@ -1,6 +1,7 @@
 package com.wild.backend.controller;
 
 import com.wild.backend.enitity.Product;
+import com.wild.backend.enitity.dto.ProductDTO;
 import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts(){
+    public List<ProductDTO> getAllProducts(){
         return productService.getAllProducts();
     }
 
@@ -34,5 +35,10 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(productService.newProduct(product));
+    }
+
+    @PostMapping("/buy")
+    public ResponseEntity<Product> buyProduct(long id){
+        return null;
     }
 }

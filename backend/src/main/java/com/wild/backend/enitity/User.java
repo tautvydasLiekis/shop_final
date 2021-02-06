@@ -1,8 +1,11 @@
 package com.wild.backend.enitity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Proxy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -47,14 +50,14 @@ public class User implements UserDetails {
     )
     private Set<Role> roles =new HashSet<>();
 
-//    @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-//    @JoinTable(
-//            name="licenses",
-//            joinColumns = { @JoinColumn(name = "user_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "product_id") }
-//    )
-//    private List<Product> products=new ArrayList<>();
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @JoinTable(
+            name="licenses",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
+    private List<Product> products=new ArrayList<>();
 
 
 
