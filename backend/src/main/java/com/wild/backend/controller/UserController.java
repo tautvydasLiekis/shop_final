@@ -1,5 +1,6 @@
 package com.wild.backend.controller;
 
+import com.wild.backend.enitity.Product;
 import com.wild.backend.enitity.User;
 import com.wild.backend.enitity.dto.UserDTO;
 import com.wild.backend.repository.UserRepository;
@@ -30,5 +31,10 @@ public class UserController {
         }
         userService.addUser(user);
         return "Welcome";
+    }
+
+    @GetMapping("/buy")
+    public String buyProduct(){
+        return "ok";
     }
 }

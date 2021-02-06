@@ -6,7 +6,6 @@ import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -35,10 +34,5 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(productService.newProduct(product));
-    }
-
-    @PostMapping("/buy")
-    public ResponseEntity<Product> buyProduct(long id){
-        return null;
     }
 }
