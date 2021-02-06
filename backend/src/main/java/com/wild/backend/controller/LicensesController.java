@@ -22,4 +22,9 @@ public class LicensesController {
     public List<Licenses> allLicenses(){
         return licensesService.allLicenses();
     }
+
+    @GetMapping("/new")
+    public String newLicenseKey(){
+        return new Licenses().newLicenseKey();
+    }
 }

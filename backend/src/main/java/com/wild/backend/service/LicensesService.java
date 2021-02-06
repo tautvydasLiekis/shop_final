@@ -18,4 +18,9 @@ public class LicensesService {
     public List<Licenses> allLicenses(){
         return licensesRepository.findAll();
     }
+
+
+    public void linkLicenseKeyToUser(){
+
+    }
 }

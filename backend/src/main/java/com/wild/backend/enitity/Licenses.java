@@ -1,11 +1,15 @@
 package com.wild.backend.enitity;
 
-import lombok.Data;
-import org.hibernate.annotations.Type;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.UUID;
 
-@Data
+@Setter
+@Getter
+@ToString
 @Entity
 public class Licenses {
 
@@ -13,7 +17,13 @@ public class Licenses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Type(type="uuid-char")
-    private String licenseKey;
+    @Column(unique = true)
+    private String licensesKey;
+
+    private Boolean isActivated;
+
+    public String newLicenseKey(){
+        return UUID.randomUUID().toString();
+    }
+
 }

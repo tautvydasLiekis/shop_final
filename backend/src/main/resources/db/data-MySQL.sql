@@ -14,5 +14,5 @@ INSERT INTO final_project.USER_ROLES (user_id, role_id) VALUES
 INSERT INTO final_project.PRODUCT(id, description, is_active, name, price) VALUES
 (1,'aaaa', 1, 'a', 10.00);
 
-INSERT INTO final_project.licenses(id, license_key, user_id, product_id) VALUES
-(1,'0370709a-670f-11eb-ae93-0242ac130002',1,1);
+INSERT INTO final_project.licenses(id, licenses_key, user_id, product_id) VALUES
+(1,'9e8a4558-fccd-475d-970f-0e32f6e51909',1,1);

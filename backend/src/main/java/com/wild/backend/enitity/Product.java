@@ -35,10 +35,10 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "is_active")
-    private Boolean flag=true;
+    private Boolean flag =true;
 
     @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
             name="licenses",
             joinColumns = { @JoinColumn(name = "user_id") },
