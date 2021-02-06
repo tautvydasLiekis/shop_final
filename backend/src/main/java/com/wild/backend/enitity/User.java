@@ -1,11 +1,7 @@
 package com.wild.backend.enitity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.Proxy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,7 +14,6 @@ import java.util.*;
 @Getter
 @Setter
 @ToString
-//@JsonIgnoreProperties(value= {"products"})
 public class User implements UserDetails {
 
     @Id
