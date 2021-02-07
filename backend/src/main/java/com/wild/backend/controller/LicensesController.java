@@ -3,10 +3,7 @@ package com.wild.backend.controller;
 import com.wild.backend.enitity.Licenses;
 import com.wild.backend.repository.LicensesRepository;
 import com.wild.backend.service.LicensesService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,9 @@ public class LicensesController {
         return new Licenses().newLicenseKey();
     }
 
-    @GetMapping
-    public String registerKey(){
-        return null;
+    @PostMapping("/{licenseKey}")
+    public String registerKey(@PathVariable String licenseKey){
+        licensesService.activateLicenseKey(licenseKey);
+        return "ok";
     }
 }

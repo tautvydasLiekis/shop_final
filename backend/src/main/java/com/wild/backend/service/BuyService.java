@@ -22,10 +22,10 @@ public class BuyService {
         this.licensesRepository = licensesRepository;
     }
 
-    public String getCheckout(String name1, String name2){
+    public String getCheckout(String productName, String username){
         Licenses licenses = new Licenses();
-        Product product = productRepository.findProductByName(name1);
-        User user = userRepository.findUserByUsername(name2);
+        Product product = productRepository.findProductByName(productName);
+        User user = userRepository.findUserByUsername(username);
         licenses.setProductId(product.getId());
         licenses.setUserId(user.getId());
         licenses.setLicensesKey(licenses.newLicenseKey());
