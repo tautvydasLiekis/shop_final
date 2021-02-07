@@ -3,7 +3,17 @@ import {Field, Form, Formik} from "formik";
 import {register} from "../../api/usersApi";
 import {Link, useHistory, useLocation} from "react-router-dom";
 
-export default () => {
+const style = {
+    background: 'linear-gradient(45deg, #51E0FF 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
+
+const Registration = () => {
     const location = useLocation()
     const history = useHistory()
 
@@ -53,11 +63,12 @@ export default () => {
                                placeholder="Please enter your password"/>
                     </div>
                     <div>
-                        <a href="/register">Already have an account? Sign in</a>
+                        <a href="/login">Already have an account? Sign in</a>
                     </div>
-                        <button type="submit" className="btn btn-dark mt-2">Register</button>
+                        <button style={style} type="submit">Register</button>
                 </Form>
             </>
         </Formik>
     )
 }
+export default Registration

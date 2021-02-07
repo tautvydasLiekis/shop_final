@@ -16,7 +16,7 @@ const style = {
 };
 
 
-const Register = () => {
+const Login = () => {
     const history = useHistory()
     const location = useLocation()
     const dispatch = useDispatch()
@@ -69,4 +69,4 @@ const Register = () => {
         </Formik>
     )
 }
-export default Register
+export default Login
