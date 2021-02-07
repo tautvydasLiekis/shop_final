@@ -5,7 +5,7 @@ import {setJwt, setUserData} from "../../store/slices/userSlice";
 import {login} from "../../api/usersApi";
 import {Form, Formik, Field} from "formik"
 
-export default () => {
+const Register = () => {
     const history = useHistory()
     const location = useLocation()
     const dispatch = useDispatch()
@@ -40,7 +40,7 @@ export default () => {
             <>
                 <Form>
                     <div className="form-group">
-                        <label htmlFor="username" for="ex1">Username:</label>
+                        <label htmlFor="username">Username:</label>
                         <Field name="username" id="username" className="form-control"
                                placeholder="Please enter your username"/>
                     </div>
@@ -58,3 +58,4 @@ export default () => {
         </Formik>
     )
 }
+export default Register
