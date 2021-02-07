@@ -1,3 +1,5 @@
 export default () => (
-	<h1>About Page!</h1>
+    <div>
+        <a>Welcome to my page</a>
+    </div>
 )

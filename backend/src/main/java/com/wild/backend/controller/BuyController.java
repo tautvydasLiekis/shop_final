@@ -1,9 +1,10 @@
 package com.wild.backend.controller;
 
 import com.wild.backend.service.BuyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 
 @RestController
@@ -17,7 +18,7 @@ public class BuyController {
     }
 
     @GetMapping
-    public String getCheckout(){
-        return buyService.getCheckout("a","user");
+    public String getCheckout(@RequestParam("prodName") String prodName,@RequestParam("user") String username){
+        return buyService.getCheckout(prodName,username);
     }
 }

@@ -1,40 +1,23 @@
 import {Switch, Route} from "react-router-dom"
-import LandingPage from "../../pages/LandingPage/LandingPage";
-import Products from "../../pages/Products/Products";
-import About from "../../pages/About/About";
-import ProductForm from "../../pages/ProductForm/ProductForm";
-import Cart from "../../pages/Cart/Cart";
-import NotFound from "../../pages/NotFound/NotFound";
-import SingleProduct from "../../pages/Products/SingleProduct";
 import Login from "../../pages/Login/Login";
+import Register from "../../pages/Registration/Registration"
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import About from "../../pages/About/About";
 
 export default () => (
 	<main className="container">
 		<Switch>
-			<Route exact path="/">
-				<LandingPage/>
-			</Route>
-			<PrivateRoute path="/products/new" roles={['ADMIN']}>
-				<ProductForm/>
-			</PrivateRoute>
-			<Route path="/products/:id">
-				<SingleProduct />
-			</Route>
-			<Route path="/products">
-				<Products/>
-			</Route>
-			<Route path="/about">
+			<PrivateRoute exact path="/">
 				<About/>
-			</Route>
-			<PrivateRoute path="/cart">
-				<Cart/>
 			</PrivateRoute>
-			<Route>
+			<PrivateRoute path="/products">
+
+			</PrivateRoute>
+			<Route path="/login">
 				<Login/>
 			</Route>
-			<Route path="*">
-				<NotFound/>
+			<Route path="/register">
+				<Register/>
 			</Route>
 		</Switch>
 	</main>

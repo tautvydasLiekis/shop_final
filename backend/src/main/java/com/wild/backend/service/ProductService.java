@@ -27,6 +27,7 @@ public class ProductService {
     }
 
     public Product newProduct(Product product){
+        product.setFlag(true);
         return productRepository.save(product);
     }
 
