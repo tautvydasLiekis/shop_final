@@ -6,7 +6,7 @@ import {login} from "../../api/usersApi";
 import {Form, Formik, Field} from "formik"
 
 const style = {
-    background: 'linear-gradient(45deg, #51E0FF 30%, #FF8E53 90%)',
+    background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
     borderRadius: 3,
     border: 0,
     color: 'white',

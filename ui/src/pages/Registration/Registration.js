@@ -4,7 +4,7 @@ import {register} from "../../api/usersApi";
 import {Link, useHistory, useLocation} from "react-router-dom";
 
 const style = {
-    background: 'linear-gradient(45deg, #51E0FF 30%, #FF8E53 90%)',
+    background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
     borderRadius: 3,
     border: 0,
     color: 'white',

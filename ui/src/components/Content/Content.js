@@ -3,7 +3,6 @@ import Login from "../../pages/Login/Login"
 import Register from "../../pages/Registration/Registration"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
 import About from "../../pages/About/About"
-import './Content.css'
 
 export default () => (
 	<main className="container">

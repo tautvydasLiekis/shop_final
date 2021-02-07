@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        background: 'linear-gradient(45deg, #51E0FF 30%, #FF8E53 90%)',
+        background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
         color: 'white',
         textTransform: 'capitalize',
     },
@@ -54,10 +54,12 @@ const Header = () => {
                         {
                             !!user ? (
                                 <>
-                                    <Link className={classes.link} component={NavLink} to="/products">Produktai</Link>
-                                    <Link className={classes.link} component={NavLink} to="/about">Apie sistema</Link>
-                                    <span>{`${user.name} ${user.lastname}`}</span>
-                                    <Link className={classes.link} component={Button} onClick={logout} href="/">Atsijungti</Link>
+                                    <Link className={classes.link} component={NavLink} to="/dashboard">Dashboard</Link>
+                                    <Link className={classes.link} component={NavLink} to="/products">Products</Link>
+                                    <Link className={classes.link} component={NavLink} to="/keys">My Keys</Link>
+                                    <Link className={classes.link} component={NavLink} to="/about">About</Link>
+                                    <Link className={classes.link} component={NavLink} to="/account"><span>{`${user.name} ${user.lastname}`}</span></Link>
+                                    <Link className={classes.link} component={Button} onClick={logout} href="/">Log out</Link>
                                     <LangSwitcher />
                                 </>
                             ) : (
