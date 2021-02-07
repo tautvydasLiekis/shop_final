@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
     const classes = useStyles()
-    const productCount = useSelector(state => state.cart.length)
     const user = useUser()
     const dispatch = useDispatch()
 
@@ -68,11 +67,11 @@ const Header = () => {
                         <Link className={classes.link} component={NavLink} to="/">CustomProd</Link>
                     </Typography>
                     <nav>
-                        <Link className={classes.link} component={NavLink} to="/download">Download</Link>
-                        <Link className={classes.link} component={NavLink} to="/about">About</Link>
                         {
                             !!user ? (
                                 <>
+                                    <Link className={classes.link} component={NavLink} to="/download">Download</Link>
+                                    <Link className={classes.link} component={NavLink} to="/about">About</Link>
                                     <span>{`${user.name} ${user.lastname}`}</span>
                                     <Link className={classes.link} component={Button} onClick={logout}>Atsijungti</Link>
                                 </>
@@ -80,13 +79,6 @@ const Header = () => {
                                 <Link className={classes.link} component={NavLink} to="/login">Prisijungti</Link>
                             )
                         }
-                        <RouterLink to="/cart">
-                            <IconButton aria-label="cart">
-                                {/*<Badge badgeContent={productCount} color="primary">*/}
-                                    {/*<ShoppingCartIcon />*/}
-                                {/*</Badge>*/}
-                            </IconButton>
-                        </RouterLink>
                     </nav>
                 </Toolbar>
             </AppBar>
