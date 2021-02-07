@@ -19,6 +19,6 @@ public class BuyController {
 
     @GetMapping
     public String getCheckout(){
-        return buyService.getCheckout(1L,1L);
+        return buyService.getCheckout("a","admin");
     }
 }

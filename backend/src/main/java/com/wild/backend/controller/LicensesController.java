@@ -30,4 +30,9 @@ public class LicensesController {
     public String newLicenseKey(){
         return new Licenses().newLicenseKey();
     }
+
+    @GetMapping
+    public String registerKey(){
+        return null;
+    }
 }

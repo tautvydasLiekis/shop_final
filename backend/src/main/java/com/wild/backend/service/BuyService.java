@@ -6,11 +6,7 @@ import com.wild.backend.enitity.User;
 import com.wild.backend.repository.LicensesRepository;
 import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.repository.UserRepository;
-import org.hibernate.Session;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-import java.util.Properties;
 
 
 @Service
@@ -26,10 +22,10 @@ public class BuyService {
         this.licensesRepository = licensesRepository;
     }
 
-    public String getCheckout(Long id1, Long id2){
+    public String getCheckout(String name1, String name2){
         Licenses licenses = new Licenses();
-        Product product = productRepository.findProductById(id1);
-        User user = userRepository.findUserById(id2);
+        Product product = productRepository.findProductByName(name1);
+        User user = userRepository.findUserByUsername(name2);
         licenses.setProductId(product.getId());
         licenses.setUserId(user.getId());
         licenses.setLicensesKey(licenses.newLicenseKey());
