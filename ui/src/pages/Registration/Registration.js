@@ -1,112 +1,63 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import {Field, Form, Formik} from "formik";
+import {register} from "../../api/usersApi";
+import {Link, useHistory, useLocation} from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-}));
+export default () => {
+    const location = useLocation()
+    const history = useHistory()
 
-export default function SignUp() {
-    const classes = useStyles();
+    const postRegistration = (registrationData, {setSubmitting}) => {
+        setSubmitting(true)
+
+        const {from} = location.state || {
+            from: {
+                pathname: '/login'
+            }
+        }
+
+        register(registrationData)
+        history.push(from)
+    }
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Typography component="h1" variant="h5">
-                    Sign up
-                </Typography>
-                <form className={classes.form} noValidate>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                autoComplete="fname"
-                                name="firstName"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="firstName"
-                                label="First Name"
-                                autoFocus
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="lastName"
-                                label="Last Name"
-                                name="lastName"
-                                autoComplete="lname"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="username"
-                                label="Username"
-                                name="username"
-                                autoComplete="username"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                            />
-                        </Grid>
-                    </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Sign Up
-                    </Button>
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link href="/login" variant="body2">
-                                Already have an account? Sign in
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </form>
-            </div>
-        </Container>
-    );
+        <Formik
+            initialValues={{
+                username: '',
+                name: '',
+                lastname: '',
+                password: ''
+            }}
+            onSubmit={postRegistration}
+        >
+            <>
+                <Form>
+                    <div className="form-group">
+                        <label htmlFor="username">Username:</label>
+                        <Field name="username" id="username" className="form-control"
+                               placeholder="Please enter your username"/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="name">Name:</label>
+                        <Field name="name" id="name" className="form-control"
+                               placeholder="Please enter your name"/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="lastname">Last Name:</label>
+                        <Field name="lastname" id="lastname" className="form-control"
+                               placeholder="Please enter your lastname"/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <Field name="password" id="password" type="password" className="form-control"
+                               placeholder="Please enter your password"/>
+                    </div>
+                    <div>
+                        <a href="/register">Already have an account? Sign in</a>
+                    </div>
+                        <button type="submit" className="btn btn-dark mt-2">Register</button>
+                </Form>
+            </>
+        </Formik>
+    )
 }
