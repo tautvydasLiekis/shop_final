@@ -5,6 +5,17 @@ import {setJwt, setUserData} from "../../store/slices/userSlice";
 import {login} from "../../api/usersApi";
 import {Form, Formik, Field} from "formik"
 
+const style = {
+    background: 'linear-gradient(45deg, #51E0FF 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
+
+
 const Register = () => {
     const history = useHistory()
     const location = useLocation()
@@ -52,7 +63,7 @@ const Register = () => {
                     <div>
                         <a href="/register">Don't have an account? Sign up</a>
                     </div>
-                        <button type="submit" className="btn btn-dark mt-2">Login</button>
+                        <button style={style} type="submit" >Login</button>
                 </Form>
             </>
         </Formik>
