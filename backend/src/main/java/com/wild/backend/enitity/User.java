@@ -49,8 +49,8 @@ public class User implements UserDetails {
     @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     @JoinTable(
             name="licenses",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+            joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id", referencedColumnName = "id") }
     )
     private List<Product> products=new ArrayList<>();
 

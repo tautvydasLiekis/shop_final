@@ -1,6 +1,7 @@
 package com.wild.backend.controller;
 
 import com.wild.backend.service.BuyService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +17,8 @@ public class BuyController {
         this.buyService = buyService;
     }
 
-    @PostMapping
+    @GetMapping
     public String getCheckout(){
-        return buyService.getCheckout("user","a");
+        return buyService.getCheckout(1L,1L);
     }
 }

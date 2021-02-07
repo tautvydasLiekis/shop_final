@@ -40,6 +40,6 @@ public class UserService implements UserDetailsService {
     }
 
     public User getById(long id){
-        return userRepository.findById(id);
+        return userRepository.findUserById(id);
     }
 }

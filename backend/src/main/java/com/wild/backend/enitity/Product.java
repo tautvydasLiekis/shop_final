@@ -37,6 +37,7 @@ public class Product {
     private Boolean flag =true;
 
     @ManyToMany(mappedBy = "products")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Set<User> users = new HashSet<>();
 }
 
