@@ -1,8 +1,3 @@
-export default () =>{
-
-    return(
-        <>
-            <h1>Hi2</h1>
-        </>
-    )
-}
+export default () => (
+	<h1>About Page!</h1>
+)

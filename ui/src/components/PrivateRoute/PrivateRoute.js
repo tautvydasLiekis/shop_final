@@ -3,25 +3,25 @@ import useUser from "../../hooks/useUser";
 import _ from 'lodash'
 
 export default ({ children, roles, ...props }) => {
-    const user = useUser()
-    const location = useLocation()
+	const user = useUser()
+	const location = useLocation()
 
-    const authorized = roles ? !!_.intersection(user?.roles, roles).length : !!user
+	const authorized = roles ? !!_.intersection(user?.roles, roles).length : !!user
 
-    return (
-        <Route {...props}>
-            {
-                authorized ? children : (
-                    <Redirect
-                        to={{
-                            pathname: '/login',
-                            state: {
-                                from: location
-                            }
-                        }}
-                    />
-                )
-            }
-        </Route>
-    )
+	return (
+		<Route {...props}>
+			{
+				authorized ? children : (
+					<Redirect
+						to={{
+							pathname: '/login',
+							state: {
+								from: location
+							}
+						}}
+					/>
+				)
+			}
+		</Route>
+	)
 }
