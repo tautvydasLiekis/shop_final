@@ -29,8 +29,11 @@ public class LicensesController {
     }
 
     @PostMapping("/{licenseKey}")
-    public String registerKey(@PathVariable String licenseKey){
+    public void registerKey(@PathVariable String licenseKey){
         licensesService.activateLicenseKey(licenseKey);
-        return "ok";
+    }
+    @GetMapping("/{licenseKey}")
+    public Boolean getRegisteredKeyStatus(@PathVariable String licenseKey){
+        return licensesService.findLicenseKeyStatus(licenseKey);
     }
 }

@@ -12,8 +12,6 @@ public interface LicensesRepository extends JpaRepository<Licenses, Long> {
 
     Licenses findLicensesByLicensesKey(String licenseKey);
 
-    Licenses findLicensesByLicensesKeyAndProductIdAndUserId(String licenseKey, Long productId, Long userId);
-
     @Modifying
     @Query("UPDATE Licenses l SET l.isActivated = true " +
             "WHERE l.licensesKey = :licenseKey ")

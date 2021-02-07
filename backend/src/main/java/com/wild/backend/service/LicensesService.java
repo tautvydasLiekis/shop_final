@@ -29,8 +29,14 @@ public class LicensesService {
     }
 
     @Transactional
-    public void activateLicenseKey(String licenseKey){
+    public Boolean activateLicenseKey(String licenseKey){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
         licensesRepository.setLicenseKeyToActive(licenses.getLicensesKey());
+        return licenses.getIsActivated();
+    }
+
+    public Boolean findLicenseKeyStatus(String licenseKey){
+        Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
+        return licenses.getIsActivated();
     }
 }
