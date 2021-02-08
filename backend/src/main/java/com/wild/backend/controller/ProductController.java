@@ -2,7 +2,6 @@ package com.wild.backend.controller;
 
 import com.wild.backend.enitity.Product;
 import com.wild.backend.enitity.dto.ProductDTO;
-import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +16,9 @@ import java.util.List;
 public class ProductController {
 
     private ProductService productService;
-    private ProductRepository productRepository;
 
-    public ProductController(ProductService productService, ProductRepository productRepository) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
-        this.productRepository = productRepository;
     }
 
     @GetMapping
