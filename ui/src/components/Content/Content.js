@@ -3,6 +3,8 @@ import Login from "../../pages/Login/Login"
 import Register from "../../pages/Registration/Registration"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
 import About from "../../pages/About/About"
+import {Dashboard} from "@material-ui/icons";
+import Products from "../../pages/Products/Products";
 
 export default () => (
 	<main className="container">
@@ -10,8 +12,14 @@ export default () => (
 			<PrivateRoute exact path="/">
 				<About/>
 			</PrivateRoute>
+			<PrivateRoute path="/dashboard">
+				<Dashboard/>
+			</PrivateRoute>
 			<PrivateRoute path="/products">
-
+				<Products/>
+			</PrivateRoute>
+			<PrivateRoute path="/about">
+				<About/>
 			</PrivateRoute>
 			<Route path="/login">
 				<Login/>

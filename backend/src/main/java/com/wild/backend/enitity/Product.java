@@ -34,7 +34,7 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "is_active")
-    private Boolean flag =true;
+    private Boolean flag;
 
     @ManyToMany(mappedBy = "products")
     @Cascade(org.hibernate.annotations.CascadeType.PERSIST)

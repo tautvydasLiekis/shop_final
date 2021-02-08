@@ -11,5 +11,6 @@ VALUES (1, 1),
        (2, 2),
        (2, 1);
 
-INSERT INTO PRODUCT(id, description, is_active, name, price)
-VALUES (1, 'aaaa', 1, 'a', 10.00);
+INSERT INTO PRODUCT(id, description, is_active, flag,name, price)
+VALUES (1, 'aaaa', 1, 'a', 10.00),
+       (1, 'aaaa', 1, 'a', 10.00);

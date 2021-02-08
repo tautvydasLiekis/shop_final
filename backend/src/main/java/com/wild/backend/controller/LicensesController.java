@@ -12,7 +12,6 @@ import java.util.List;
 public class LicensesController {
 
     private LicensesService licensesService;
-    private LicensesRepository licensesRepository;
 
     public LicensesController(LicensesService licensesService) {
         this.licensesService = licensesService;
