@@ -5,6 +5,7 @@ import com.wild.backend.repository.LicensesRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,6 +24,7 @@ public class LicensesService {
     @Transactional
     public Boolean activateLicenseKey(Integer key){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(key);
+        licenses.setLocalDateTime(LocalDateTime.now().plusDays(30));
         licensesRepository.setLicenseKeyToActive(key);
         licensesRepository.save(licenses);
         return licenses.getIsActivated();

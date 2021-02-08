@@ -5,8 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Random;
-import java.util.UUID;
 
 @Setter
 @Getter
@@ -22,6 +22,8 @@ public class Licenses {
     private Integer licensesKey;
 
     private Boolean isActivated;
+
+    private LocalDateTime localDateTime;
 
     @Column(name = "user_id")
     private Long userId;

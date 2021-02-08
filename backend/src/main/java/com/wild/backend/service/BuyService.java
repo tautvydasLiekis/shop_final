@@ -8,6 +8,8 @@ import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 
 @Service
 public class BuyService {
@@ -30,6 +32,7 @@ public class BuyService {
         licenses.setUserId(user.getId());
         licenses.setLicensesKey(licenses.newLicenseKey());
         licenses.setIsActivated(false);
+        licenses.setLocalDateTime(LocalDateTime.now());
         licensesRepository.saveAndFlush(licenses);
         return licenses.getLicensesKey();
     }
