@@ -13,13 +13,9 @@ import java.util.List;
 public class LicensesService {
 
     private LicensesRepository licensesRepository;
-    private UserRepository userRepository;
-    private ProductRepository productRepository;
 
-    public LicensesService(LicensesRepository licensesRepository, UserRepository userRepository, ProductRepository productRepository) {
+    public LicensesService(LicensesRepository licensesRepository) {
         this.licensesRepository = licensesRepository;
-        this.userRepository = userRepository;
-        this.productRepository = productRepository;
     }
 
     public List<Licenses> allLicenses(){

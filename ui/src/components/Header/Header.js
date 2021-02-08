@@ -53,16 +53,21 @@ const Header = () => {
                     <nav>
                         {
                             !!user?.roles.includes('ADMIN') && (
-                                    <Link className={classes.link} component={NavLink}to="/products/new">New Product</Link>
+                                <>
+                                    <Link className={classes.link} component={NavLink} to="/products/new">New
+                                        Product</Link>
+                                    <Link className={classes.link} component={NavLink} to="/keys">All keys</Link>
+                                </>
                             )
                         }
                         {
                             !!user?.roles.includes('USER') && (
                                 <>
                                     <>
-                                        <Link className={classes.link} component={NavLink}to="/dashboard">Dashboard</Link>
-                                        <Link className={classes.link} component={NavLink} to="/products">Products</Link>
-                                        <Link className={classes.link} component={NavLink} to="/keys">My Keys</Link>
+                                        <Link className={classes.link} component={NavLink}
+                                              to="/dashboard">Dashboard</Link>
+                                        <Link className={classes.link} component={NavLink}
+                                              to="/products">Products</Link>
                                         <Link className={classes.link} component={NavLink} to="/about">About</Link>
                                         <Link className={classes.link} component={NavLink}
                                               to="/account"><span>{`${user.name} ${user.lastname}`}</span></Link>

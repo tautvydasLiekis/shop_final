@@ -5,6 +5,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute"
 import About from "../../pages/About/About"
 import Products from "../../pages/Products/Products";
 import ProductForm from "../../pages/ProductForm/ProductForm";
+import Keys from "../../pages/Keys/Keys";
 
 export default () => (
 	<main className="container">
@@ -17,6 +18,9 @@ export default () => (
 			</PrivateRoute>
 			<PrivateRoute path="/products">
 				<Products/>
+			</PrivateRoute>
+			<PrivateRoute path="/keys">
+				<Keys/>
 			</PrivateRoute>
 			<PrivateRoute path="/about">
 				<About/>

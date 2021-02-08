@@ -11,13 +11,6 @@ import Button from "@material-ui/core/Button";
 
 function ProductTable({products, handleBuyClick}) {
 
-    const style_1 = {
-        background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
-        color: 'white'
-    }
-    const style_2 = {
-        background: 'linear-gradient(45deg, #FF8E53 30%, #484848 90%)'
-    }
     const button_style = {
         background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
         borderRadius: 3,
@@ -34,7 +27,7 @@ function ProductTable({products, handleBuyClick}) {
                 <TableBody>
                     {
                         products.map(p => (
-                                <TableRow key={p.id} className={p.flag ? style_1.background : style_2.background}>
+                                <TableRow key={p.id}>
                                     <TableCell>{p.id}</TableCell>
                                     <TableCell>{p.name}</TableCell>
                                     <TableCell>{p.description}</TableCell>
@@ -66,8 +59,7 @@ ProductTable.propTypes = {
             name: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             price: PropTypes.number.isRequired,
-            flag: PropTypes.bool.isRequired,
-            users: PropTypes.array.isRequired
+            flag: PropTypes.bool.isRequired
         })
     ).isRequired,
     handleBuyClick: PropTypes.func.isRequired
