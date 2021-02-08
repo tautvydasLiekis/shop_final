@@ -17,7 +17,7 @@ function AllKeyTable({keys}) {
                         keys.map(k => (
                             <TableRow key={k.id}>
                                 <TableCell>{k.id}</TableCell>
-                                <TableCell>{k.licenseKey ? "NO":"YES"}</TableCell>
+                                <TableCell>{k.licenseKey}</TableCell>
                                 <TableCell>{k.isActivated ? "ACTIVE" : "INACTIVE"}</TableCell>
                             </TableRow>
 
@@ -32,7 +32,7 @@ AllKeyTable.propTypes = {
     keys: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
-            licenseKey: PropTypes.string.isRequired,
+            licenseKey: PropTypes.number.isRequired,
             isActivated: PropTypes.string.isRequired
         })
     ).isRequired

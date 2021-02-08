@@ -20,7 +20,7 @@ public class BuyController {
     }
 
     @PutMapping
-    public String getCheckout(@RequestParam("prodName") String prodName,@RequestParam("user") String username){
+    public Integer getCheckout(@RequestParam("prodName") String prodName,@RequestParam("user") String username){
         return buyService.getCheckout(prodName,username);
     }
 }

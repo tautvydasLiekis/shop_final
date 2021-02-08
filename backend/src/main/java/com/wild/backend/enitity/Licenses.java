@@ -19,7 +19,7 @@ public class Licenses {
     private Long id;
 
     @Column(unique = true)
-    private String licensesKey;
+    private Integer licensesKey;
 
     private Boolean isActivated;
 
@@ -29,13 +29,13 @@ public class Licenses {
     @Column(name = "product_id")
     private Long productId;
 
-    public String newLicenseKey() {
+    public Integer newLicenseKey() {
         Random rnd = new Random();
-        char [] digits = new char[11];
+        char [] digits = new char[5];
         digits[0] = (char) (rnd.nextInt(9) + '1');
         for(int i=1; i<digits.length; i++) {
             digits[i] = (char) (rnd.nextInt(10) + '0');
         }
-        return new String(digits);
+        return Integer.parseInt(new String(digits));
     }
 }
