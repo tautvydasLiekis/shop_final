@@ -8,7 +8,16 @@ import TableContainer from "@material-ui/core/TableContainer";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
+
 function ProductTable({products, buyProduct}) {
+
+    const style_1 = {
+        background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
+        color: 'white'
+    }
+    const style_2 = {
+        background: 'linear-gradient(45deg, #FF8E53 30%, #484848 90%)'
+    }
 
     return (
         <TableContainer>
@@ -16,13 +25,14 @@ function ProductTable({products, buyProduct}) {
                 <TableBody>
                     {
                         products.map(p => (
-                            <TableRow key={p.id}>
-                                <TableCell>{p.id}</TableCell>
-                                <TableCell><Link to={`/products/${p.id}`}>{p.name}</Link></TableCell>
-                                <TableCell>{p.description}</TableCell>
-                                <TableCell>{p.price}</TableCell>
-                                <TableCell>{p.flag ? "ok" : "not ok"}</TableCell>
-                            </TableRow>
+                                <TableRow key={p.id} className={p.flag ? style_1.background : style_2.background}>
+                                    <TableCell>{p.id}</TableCell>
+                                    <TableCell>{p.name}</TableCell>
+                                    <TableCell>{p.description}</TableCell>
+                                    <TableCell>{p.price}</TableCell>
+                                    <TableCell>{p.flag ? "ACTIVE" : "INACTIVE"}</TableCell>
+                                </TableRow>
+
                         ))
                     }
                 </TableBody>

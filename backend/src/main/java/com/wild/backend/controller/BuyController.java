@@ -17,7 +17,7 @@ public class BuyController {
         this.buyService = buyService;
     }
 
-    @GetMapping
+    @PatchMapping
     public String getCheckout(@RequestParam("prodName") String prodName,@RequestParam("user") String username){
         return buyService.getCheckout(prodName,username);
     }

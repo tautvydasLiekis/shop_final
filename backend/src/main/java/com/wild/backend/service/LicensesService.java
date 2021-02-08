@@ -1,8 +1,6 @@
 package com.wild.backend.service;
 
 import com.wild.backend.enitity.Licenses;
-import com.wild.backend.enitity.Product;
-import com.wild.backend.enitity.User;
 import com.wild.backend.repository.LicensesRepository;
 import com.wild.backend.repository.ProductRepository;
 import com.wild.backend.repository.UserRepository;
@@ -29,14 +27,18 @@ public class LicensesService {
     }
 
     @Transactional
-    public Boolean activateLicenseKey(String licenseKey){
-        Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
-        licensesRepository.setLicenseKeyToActive(licenses.getLicensesKey());
+    public Boolean activateLicenseKey(String key){
+        Licenses licenses = licensesRepository.findLicensesByLicensesKey(key);
+        licensesRepository.setLicenseKeyToActive(key);
+        licensesRepository.save(licenses);
         return licenses.getIsActivated();
     }
 
     public Boolean findLicenseKeyStatus(String licenseKey){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
         return licenses.getIsActivated();
+    }
+    public List<Licenses> licensesByUsername(String username){
+        return licensesRepository.findalllicensesbyusername(username, true);
     }
 }

@@ -3,8 +3,10 @@ package com.wild.backend.controller;
 import com.wild.backend.enitity.Licenses;
 import com.wild.backend.repository.LicensesRepository;
 import com.wild.backend.service.LicensesService;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -18,21 +20,22 @@ public class LicensesController {
     }
 
     @GetMapping
-    public List<Licenses> allLicenses(){
+    public List<Licenses> allLicenses() {
         return licensesService.allLicenses();
     }
 
-    @GetMapping("/new")
-    public String newLicenseKey(){
-        return new Licenses().newLicenseKey();
+    @PatchMapping("/{licenseKey}")
+    public Boolean registerKey(@PathVariable("licenseKey") String licenseKey) {
+        return licensesService.activateLicenseKey(licenseKey);
     }
 
-    @PostMapping("/{licenseKey}")
-    public void registerKey(@PathVariable String licenseKey){
-        licensesService.activateLicenseKey(licenseKey);
-    }
     @GetMapping("/{licenseKey}")
-    public Boolean getRegisteredKeyStatus(@PathVariable String licenseKey){
+    public Boolean getRegisteredKeyStatus(@PathVariable("licenseKey") String licenseKey) {
         return licensesService.findLicenseKeyStatus(licenseKey);
+    }
+
+    @GetMapping("/{username}")
+    public List<Licenses> getUsersLicenses(@PathVariable("username") Authentication authentication){
+        return licensesService.licensesByUsername(authentication.getName());
     }
 }
