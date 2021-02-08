@@ -4,6 +4,7 @@ import com.wild.backend.enitity.Licenses;
 import com.wild.backend.repository.LicensesRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -19,6 +20,7 @@ public class LicensesService {
         return licensesRepository.findAll();
     }
 
+    @Transactional
     public Boolean activateLicenseKey(Integer key){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(key);
         licensesRepository.setLicenseKeyToActive(key);
