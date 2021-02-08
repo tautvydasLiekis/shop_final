@@ -2,11 +2,8 @@ package com.wild.backend.service;
 
 import com.wild.backend.enitity.Licenses;
 import com.wild.backend.repository.LicensesRepository;
-import com.wild.backend.repository.ProductRepository;
-import com.wild.backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -22,15 +19,14 @@ public class LicensesService {
         return licensesRepository.findAll();
     }
 
-    @Transactional
-    public Boolean activateLicenseKey(String key){
+    public Boolean activateLicenseKey(Integer key){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(key);
         licensesRepository.setLicenseKeyToActive(key);
         licensesRepository.save(licenses);
         return licenses.getIsActivated();
     }
 
-    public Boolean findLicenseKeyStatus(String licenseKey){
+    public Boolean findLicenseKeyStatus(Integer licenseKey){
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
         return licenses.getIsActivated();
     }

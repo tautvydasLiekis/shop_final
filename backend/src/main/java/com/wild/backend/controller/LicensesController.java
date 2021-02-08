@@ -19,18 +19,18 @@ public class LicensesController {
         this.licensesService = licensesService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Licenses> allLicenses() {
         return licensesService.allLicenses();
     }
 
     @PatchMapping("/{licenseKey}")
-    public Boolean registerKey(@PathVariable("licenseKey") String licenseKey) {
+    public Boolean registerKey(@PathVariable("licenseKey") Integer licenseKey) {
         return licensesService.activateLicenseKey(licenseKey);
     }
 
     @GetMapping("/{licenseKey}")
-    public Boolean getRegisteredKeyStatus(@PathVariable("licenseKey") String licenseKey) {
+    public Boolean getRegisteredKeyStatus(@PathVariable("licenseKey") Integer licenseKey) {
         return licensesService.findLicenseKeyStatus(licenseKey);
     }
 

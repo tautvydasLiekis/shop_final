@@ -12,14 +12,13 @@ import java.util.List;
 @Repository
 public interface LicensesRepository extends JpaRepository<Licenses, Long> {
 
-    Licenses findLicensesByLicensesKey(String licenseKey);
+    Licenses findLicensesByLicensesKey(Integer licenseKey);
 
     Licenses findLicensesById(long id);
 
     @Modifying
-    @Query("UPDATE Licenses l SET l.isActivated = true " +
-            "WHERE l.licensesKey = :licenseKey ")
-    void setLicenseKeyToActive(@Param("licenseKey") String licenseKey);
+    @Query(value = "UPDATE Licenses l SET l.is_activated = true WHERE l.licenses_key = ?", nativeQuery = true)
+    void setLicenseKeyToActive(@Param("licenseKey") Integer license_Key);
 
     @Query("SELECT l.licensesKey, p.name FROM Licenses l " +
                     "left join Product p on p.id = l.productId " +
