@@ -7,6 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 
 function ProductTable({products, buyProduct}) {
@@ -18,6 +19,15 @@ function ProductTable({products, buyProduct}) {
     const style_2 = {
         background: 'linear-gradient(45deg, #FF8E53 30%, #484848 90%)'
     }
+    const button_style = {
+        background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    };
 
     return (
         <TableContainer>
@@ -31,6 +41,19 @@ function ProductTable({products, buyProduct}) {
                                     <TableCell>{p.description}</TableCell>
                                     <TableCell>{p.price}&euro;</TableCell>
                                     <TableCell>{p.flag ? "ACTIVE" : "INACTIVE"}</TableCell>
+                                    <TableCell>
+                                        <Button
+                                            variant="contained"
+                                            style={button_style}
+                                            color="primary"
+                                            size="small"
+                                            onClick={() => buyProduct({
+                                                id: p.id,
+                                                name: p.name,
+                                                price: p.price
+                                            })}
+                                        >BUY</Button>
+                                    </TableCell>
                                 </TableRow>
 
                         ))
