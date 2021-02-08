@@ -6,11 +6,10 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 
-function ProductTable({products, buyProduct}) {
+function ProductTable({products, handleBuyClick}) {
 
     const style_1 = {
         background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
@@ -47,11 +46,7 @@ function ProductTable({products, buyProduct}) {
                                             style={button_style}
                                             color="primary"
                                             size="small"
-                                            onClick={() => buyProduct({
-                                                id: p.id,
-                                                name: p.name,
-                                                price: p.price
-                                            })}
+                                            onClick={() => handleBuyClick(p.name)}
                                         >BUY</Button>
                                     </TableCell>
                                 </TableRow>
@@ -74,7 +69,8 @@ ProductTable.propTypes = {
             flag: PropTypes.bool.isRequired,
             users: PropTypes.array.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    handleBuyClick: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = {}

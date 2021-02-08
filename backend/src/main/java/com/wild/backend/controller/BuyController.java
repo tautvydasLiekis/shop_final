@@ -1,6 +1,8 @@
 package com.wild.backend.controller;
 
 import com.wild.backend.service.BuyService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,7 @@ public class BuyController {
         this.buyService = buyService;
     }
 
-    @PatchMapping
+    @PutMapping
     public String getCheckout(@RequestParam("prodName") String prodName,@RequestParam("user") String username){
         return buyService.getCheckout(prodName,username);
     }

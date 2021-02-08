@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 import {fetchProducts } from "../../api/productsApi";
 import ProductsTable from "./ProductsTable";
-import Button from "@material-ui/core/Button";
 import Loader from "../common/Loader";
 import useUser from "../../hooks/useUser";
+import {buyProduct} from "../../api/buyApi";
 
 const style = {
 	background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
@@ -35,6 +34,16 @@ const Products = () => {
 				setIsLoading(false);
 			})
 	}
+	const handleBuyClick = (name) => {
+		setIsLoading(true);
+		buyProduct(name)
+			.then(() => {
+				loadAllProducts();
+			})
+			.finally(() => {
+				setIsLoading(false);
+			})
+	}
 
 	return (
 		<>
@@ -42,6 +51,7 @@ const Products = () => {
 				isLoading ? (<Loader />) :
 					<ProductsTable
 						products={products}
+						handleBuyClick={handleBuyClick}
 					/>
 			}
 		</>

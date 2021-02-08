@@ -3,7 +3,15 @@ import {useHistory, useLocation} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setJwt, setUserData} from "../../store/slices/userSlice";
 import {login} from "../../api/usersApi";
-import {Form, Formik, Field} from "formik"
+import {Form, Formik, Field, ErrorMessage} from "formik"
+import * as Yup from "yup";
+
+const validationSchema = Yup.object().shape({
+    username: Yup.string()
+        .required('Username is required'),
+    password: Yup.string()
+        .required('Lastname is required'),
+})
 
 const style = {
     background: 'linear-gradient(45deg, #484848 30%, #FF8E53 90%)',
@@ -47,6 +55,7 @@ const Login = () => {
                 password: ''
             }}
             onSubmit={postLogin}
+            validationSchema={validationSchema}
         >
             <>
                 <Form>
@@ -54,11 +63,13 @@ const Login = () => {
                         <label htmlFor="username">Username:</label>
                         <Field name="username" id="username" className="form-control"
                                placeholder="Please enter your username"/>
+                        <ErrorMessage name="username" component="small" className="form-text text-danger"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password:</label>
                         <Field name="password" id="password" type="password" className="form-control"
                                placeholder="Please enter your password"/>
+                        <ErrorMessage name="password" component="small" className="form-text text-danger"/>
                     </div>
                     <div>
                         <a href="/register">Don't have an account? Sign up</a>
