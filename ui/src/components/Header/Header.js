@@ -1,7 +1,6 @@
 import {AppBar, Badge, CssBaseline, IconButton, Link, makeStyles, Toolbar, Typography, Button} from "@material-ui/core";
 import {NavLink, Link as RouterLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import LangSwitcher from "./LangSwitcher";
 import {removeJwt, removeUserData} from "../../store/slices/userSlice";
 import useUser from "../../hooks/useUser";
 
@@ -73,7 +72,6 @@ const Header = () => {
                                               to="/account"><span>{`${user.name} ${user.lastname}`}</span></Link>
                                         <Link className={classes.link} component={Button} onClick={logout} href="/">Log
                                             out</Link>
-                                        <LangSwitcher/>
                                     </>
                                 </>
                             )
