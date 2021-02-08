@@ -52,18 +52,25 @@ const Header = () => {
                     </Typography>
                     <nav>
                         {
-                            !!user ? (
+                            !!user?.roles.includes('ADMIN') && (
+                                    <Link className={classes.link} component={NavLink}to="/products/new">New Product</Link>
+                            )
+                        }
+                        {
+                            !!user?.roles.includes('USER') && (
                                 <>
-                                    <Link className={classes.link} component={NavLink} to="/dashboard">Dashboard</Link>
-                                    <Link className={classes.link} component={NavLink} to="/products">Products</Link>
-                                    <Link className={classes.link} component={NavLink} to="/keys">My Keys</Link>
-                                    <Link className={classes.link} component={NavLink} to="/about">About</Link>
-                                    <Link className={classes.link} component={NavLink} to="/account"><span>{`${user.name} ${user.lastname}`}</span></Link>
-                                    <Link className={classes.link} component={Button} onClick={logout} href="/">Log out</Link>
-                                    <LangSwitcher />
+                                    <>
+                                        <Link className={classes.link} component={NavLink}to="/dashboard">Dashboard</Link>
+                                        <Link className={classes.link} component={NavLink} to="/products">Products</Link>
+                                        <Link className={classes.link} component={NavLink} to="/keys">My Keys</Link>
+                                        <Link className={classes.link} component={NavLink} to="/about">About</Link>
+                                        <Link className={classes.link} component={NavLink}
+                                              to="/account"><span>{`${user.name} ${user.lastname}`}</span></Link>
+                                        <Link className={classes.link} component={Button} onClick={logout} href="/">Log
+                                            out</Link>
+                                        <LangSwitcher/>
+                                    </>
                                 </>
-                            ) : (
-                                <LangSwitcher />
                             )
                         }
                     </nav>

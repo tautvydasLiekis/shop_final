@@ -7,9 +7,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -24,7 +22,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 25)
     private String name;
 
     @Column(nullable = false)

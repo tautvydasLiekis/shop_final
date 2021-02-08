@@ -29,7 +29,7 @@ function ProductTable({products, buyProduct}) {
                                     <TableCell>{p.id}</TableCell>
                                     <TableCell>{p.name}</TableCell>
                                     <TableCell>{p.description}</TableCell>
-                                    <TableCell>{p.price}</TableCell>
+                                    <TableCell>{p.price}&euro;</TableCell>
                                     <TableCell>{p.flag ? "ACTIVE" : "INACTIVE"}</TableCell>
                                 </TableRow>
 

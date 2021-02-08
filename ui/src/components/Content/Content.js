@@ -3,8 +3,8 @@ import Login from "../../pages/Login/Login"
 import Register from "../../pages/Registration/Registration"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
 import About from "../../pages/About/About"
-import {Dashboard} from "@material-ui/icons";
 import Products from "../../pages/Products/Products";
+import ProductForm from "../../pages/ProductForm/ProductForm";
 
 export default () => (
 	<main className="container">
@@ -12,8 +12,8 @@ export default () => (
 			<PrivateRoute exact path="/">
 				<About/>
 			</PrivateRoute>
-			<PrivateRoute path="/dashboard">
-				<Dashboard/>
+			<PrivateRoute path="/products/new" roles={['ADMIN']}>
+				<ProductForm/>
 			</PrivateRoute>
 			<PrivateRoute path="/products">
 				<Products/>

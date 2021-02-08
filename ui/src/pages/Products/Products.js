@@ -43,14 +43,6 @@ const Products = () => {
 					<ProductsTable
 						products={products}
 					/>
-
-			}
-			{
-				user?.roles.includes('ADMIN') && (
-					<Link to="/products/new">
-						<Button type="button" variant="contained" style={style}>New Product</Button>
-					</Link>
-				)
 			}
 		</>
 	)
