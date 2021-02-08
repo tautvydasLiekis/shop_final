@@ -2,7 +2,6 @@ package com.wild.backend.controller;
 
 import com.wild.backend.enitity.Licenses;
 import com.wild.backend.service.LicensesService;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +32,7 @@ public class LicensesController {
     }
 
     @GetMapping("/user")
-    public List<Licenses> getUsersLicenses(@RequestParam("username") Authentication authentication){
-        return licensesService.licensesByUsername(authentication.getName());
+    public List<Licenses> getUsersLicenses(@RequestParam("username") String username){
+        return licensesService.licensesByUsername(username);
     }
 }

@@ -30,8 +30,4 @@ public class ProductService {
         product.setFlag(true);
         return productRepository.save(product);
     }
-
-    public Product getById(long id){
-        return productRepository.findProductById(id);
-    }
 }

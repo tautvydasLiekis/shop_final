@@ -33,7 +33,7 @@ public class Licenses {
 
     public Integer newLicenseKey() {
         Random rnd = new Random();
-        char [] digits = new char[5];
+        char [] digits = new char[32];
         digits[0] = (char) (rnd.nextInt(9) + '1');
         for(int i=1; i<digits.length; i++) {
             digits[i] = (char) (rnd.nextInt(10) + '0');

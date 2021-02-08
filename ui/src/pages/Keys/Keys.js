@@ -1,12 +1,10 @@
 import {allKeys} from "../../api/licenseApi";
 import {useEffect, useState} from "react";
-import Loader from "../common/Loader";
 import AllKeyTable from "./AllKeyTable";
 
 
-const Keys = () =>{
+const Keys = () => {
     const [keys, setKeys] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         loadAllKeys();
@@ -17,18 +15,13 @@ const Keys = () =>{
             .then(response => {
                 setKeys(response.data)
             })
-            .finally(() => {
-                setIsLoading(false);
-            })
     }
     return (
         <>
-            {
-                isLoading ? (<Loader />) :
-                    <AllKeyTable
-                        keys={keys}
-                    />
-            }
+            <AllKeyTable
+                keys={keys}
+            />
+
         </>
     )
 }

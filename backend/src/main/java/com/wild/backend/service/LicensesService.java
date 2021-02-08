@@ -34,7 +34,8 @@ public class LicensesService {
         Licenses licenses = licensesRepository.findLicensesByLicensesKey(licenseKey);
         return licenses.getIsActivated();
     }
+
     public List<Licenses> licensesByUsername(String username){
-        return licensesRepository.findalllicensesbyusername(username, true);
+        return licensesRepository.findalllicensesbyusername(username);
     }
 }

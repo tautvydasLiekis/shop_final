@@ -1,49 +1,37 @@
 import {useEffect, useState} from "react";
-import {fetchProducts } from "../../api/productsApi";
+import {fetchProducts} from "../../api/productsApi";
 import ProductsTable from "./ProductsTable";
-import Loader from "../common/Loader";
 import {buyProduct} from "../../api/buyApi";
 
 const Products = () => {
-	const [products, setProducts] = useState([])
-	const [isLoading, setIsLoading] = useState(true)
+    const [products, setProducts] = useState([])
 
-	useEffect(() => {
-		loadAllProducts();
-	}, [])
+    useEffect(() => {
+        loadAllProducts();
+    }, [])
 
-	const loadAllProducts = () => {
-		setIsLoading(true);
-		fetchProducts()
-			.then(response => {
-				setProducts(response.data)
-			})
-			.finally(() => {
-				setIsLoading(false);
-			})
-	}
-	const handleBuyClick = (name) => {
-		setIsLoading(true);
-		buyProduct(name)
-			.then(() => {
-				loadAllProducts();
-			})
-			.finally(() => {
-				setIsLoading(false);
-			})
-	}
+    const loadAllProducts = () => {
+        fetchProducts()
+            .then(response => {
+                setProducts(response.data)
+            })
+    }
+    const handleBuyClick = (name) => {
+        buyProduct(name)
+            .then(() => {
+                loadAllProducts();
+            })
+    }
 
-	return (
-		<>
-			{
-				isLoading ? (<Loader />) :
-					<ProductsTable
-						products={products}
-						handleBuyClick={handleBuyClick}
-					/>
-			}
-		</>
-	)
+    return (
+        <>
+            <ProductsTable
+                products={products}
+                handleBuyClick={handleBuyClick}
+            />
+
+        </>
+    )
 }
 
 Products.displayName = "Products"
